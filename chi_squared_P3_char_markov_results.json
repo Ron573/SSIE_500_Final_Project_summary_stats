@@ -1,0 +1,137 @@
+[
+  {
+    "compared_langs": [
+      "English",
+      "Spanish"
+    ],
+    "total_chi2_statistic": 33804.297811089345,
+    "total_degrees_of_freedom": 7462,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "English",
+      "Russian"
+    ],
+    "total_chi2_statistic": 379.1273181209244,
+    "total_degrees_of_freedom": 88,
+    "overall_p_value_approx": 8.845980158153505e-38
+  },
+  {
+    "compared_langs": [
+      "English",
+      "Chinese"
+    ],
+    "total_chi2_statistic": 10221.779283055304,
+    "total_degrees_of_freedom": 3190,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "English",
+      "Hindi"
+    ],
+    "total_chi2_statistic": 6871.212513200414,
+    "total_degrees_of_freedom": 1703,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "English",
+      "Turkish"
+    ],
+    "total_chi2_statistic": 34012.273982341256,
+    "total_degrees_of_freedom": 6850,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "Spanish",
+      "Russian"
+    ],
+    "total_chi2_statistic": 82.0,
+    "total_degrees_of_freedom": 40,
+    "overall_p_value_approx": 0.00010174387382969439
+  },
+  {
+    "compared_langs": [
+      "Spanish",
+      "Chinese"
+    ],
+    "total_chi2_statistic": 8955.48164620207,
+    "total_degrees_of_freedom": 2522,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "Spanish",
+      "Hindi"
+    ],
+    "total_chi2_statistic": 5000.122293729901,
+    "total_degrees_of_freedom": 1465,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "Spanish",
+      "Turkish"
+    ],
+    "total_chi2_statistic": 31295.31036214063,
+    "total_degrees_of_freedom": 6849,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "Russian",
+      "Chinese"
+    ],
+    "total_chi2_statistic": 402.47226190476187,
+    "total_degrees_of_freedom": 67,
+    "overall_p_value_approx": 2.360086725996211e-49
+  },
+  {
+    "compared_langs": [
+      "Russian",
+      "Hindi"
+    ],
+    "total_chi2_statistic": 535.681294701675,
+    "total_degrees_of_freedom": 57,
+    "overall_p_value_approx": 5.408907250560485e-79
+  },
+  {
+    "compared_langs": [
+      "Russian",
+      "Turkish"
+    ],
+    "total_chi2_statistic": 262.84444896401413,
+    "total_degrees_of_freedom": 42,
+    "overall_p_value_approx": 9.601011341942217e-34
+  },
+  {
+    "compared_langs": [
+      "Chinese",
+      "Hindi"
+    ],
+    "total_chi2_statistic": 513.6292517006802,
+    "total_degrees_of_freedom": 232,
+    "overall_p_value_approx": 2.3037724690892185e-23
+  },
+  {
+    "compared_langs": [
+      "Chinese",
+      "Turkish"
+    ],
+    "total_chi2_statistic": 9952.872612116878,
+    "total_degrees_of_freedom": 2096,
+    "overall_p_value_approx": 0.0
+  },
+  {
+    "compared_langs": [
+      "Hindi",
+      "Turkish"
+    ],
+    "total_chi2_statistic": 7835.602754827379,
+    "total_degrees_of_freedom": 2224,
+    "overall_p_value_approx": 0.0
+  }
+]
