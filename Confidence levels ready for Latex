@@ -1,0 +1,9 @@
+
+
+
+
+
+The 95\,\% bootstrap confidence intervals indicate that the average
+compression ratio lies between \MeanComprRatioLo{} and
+\MeanComprRatioHi{}, while the corresponding Landauer energy saving
+ranges from \MeanEnergySavingLo{}\% to \MeanEnergySavingHi{}\
