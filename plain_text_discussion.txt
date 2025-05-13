@@ -1,0 +1,49 @@
+DISCUSSION
+────────────────────────────────────────
+
+Compression effectiveness
+
+The Huffman step reduced file size by ⟨mean ×ratio⟩ (Table 2), consistent with the
+empirical redundancy of English-language text (1.5–1.7 bits/char).
+
+Thermodynamic implications
+
+Applying Landauer’s theorem, the theoretical energy to erase the corpus at 300 K drops
+by ⟨mean ΔE %⟩ %, translating to ⟨absolute J⟩ J for this dataset.  Although the
+absolute numbers are tiny at laboratory scale, they matter in high-volume archival
+systems and establish a hard physical floor for “green computing” claims.
+
+Markov-structure persistence
+
+• Raw text: third-order entropy H₃ ≈ ⟨μ_raw⟩ bits/symbol.
+
+• Huffman bits: H₃ only drops to ⟨μ_huff⟩ bits/bit, indicating that context
+correlations survive symbol-wise compression.
+
+This is expected because Huffman coding is memoryless: it optimises marginal
+frequencies, not higher-order dependencies.
+
+Practical takeaway
+
+If further compression is needed, algorithms that exploit the residual Markov
+structure (e.g., arithmetic coding on context models, PPM, or neural entropy coding)
+can push entropy closer to the IID Bernoulli limit of 1 bit/bit.
+
+Limitations
+
+• Character-level granularity under-represents lexical phenomena; a
+word-level model would capture longer-range regularities.
+
+• Landauer’s bound is a lower bound; real hardware consumes orders of magnitude
+more energy, so the absolute savings should be interpreted qualitatively.
+
+• Only third-order context was studied; higher orders may alter perplexity trends.
+
+Future work
+
+• Extend to adaptive arithmetic coding and compare post-compression entropy.
+
+• Evaluate energy-delay product on real SSD/HDD hardware to bridge theory and practice.
+
+• Investigate tokenisation schemes (BPE, unigram LM) that bring Huffman closer to the
+Shannon limit before applying context modelling.

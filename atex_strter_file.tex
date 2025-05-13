@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+
+% ---------- 1.  PACKAGES ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{siunitx}      % \num, \SI
+\sisetup{round-mode=places,round-precision=3}
+\usepackage{graphicx}
+\usepackage{pgfplots}     % for Figure 1 (probability spectrum)
+\usetikzlibrary{pgfplots.groupplots}
+\pgfplotsset{compat=1.18}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% ---------- 2.  BIBLIOGRAPHY STUB ----------
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{refs.bib}
+
+% ---------- 3.  AUTO-IMPORT OF RESULTS ----------
+% The Python script dumps a file results.tex that contains only
+% \newcommand{\<macro>}{<number>} lines.  We input it here so all
+% numbers are live.
+\IfFileExists{results.tex}{\input{results.tex}}{\message{results.tex not found}}
+
+\title{High-Order Markov Analysis and Landauer-Limited Energy Savings\\
+       under Huffman Compression}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We quantify the information-theoretic and thermodynamic implications of
+Huffman compression on a GitHub corpus consisting of \textbf{\num{\Nfiles}}
+plain-text files (total \textbf{\num{\NcharsTotal}} characters).
+Third-order character-level Markov models are estimated \emph{pre} and
+\emph{post} compression.  Compression achieves an average
+\textbf{\num[round-precision=2]{\MeanComprRatio}} × reduction in bit-length,
+lowering the Landauer erase-energy bound by
+\textbf{\num{\MeanEnergySaving}\%}.  Despite this size reduction, the
+post-compression chains retain significant third-order structure
+(perplexity \textbf{\num{\MeanPostPPL}}).  We discuss the consequences for
+cascade compression and green storage architectures.
+\end{abstract}
+
+\section{Introduction}
+\input{sections/introduction.tex}
+
+\section{Methodology}
+\input{sections/methodology.tex}
+
+\section{Results}
+\input{sections/results.tex}
+
+\section{Discussion}
+\input{sections/discussion.tex}
+
+\printbibliography
+\end{document}
+

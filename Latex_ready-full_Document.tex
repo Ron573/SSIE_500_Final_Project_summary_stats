@@ -1,0 +1,144 @@
+% ====================================================================
+%  High-Order Markov Analysis & Landauer-Limited Energy Savings
+%  Manuscript – camera-ready template
+% ====================================================================
+\documentclass[11pt,a4paper]{article}
+
+% -------------------------- packages --------------------------------
+\usepackage[utf8]{inputenc}          % UTF-8 source
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{detect-all,round-mode=places,round-precision=2}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usepackage{hyperref}
+\usepackage[capitalize,nameinlink]{cleveref}
+
+\usepackage{csquotes}      % for biblatex
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    maxcitenames=2,
+    maxbibnames=99
+]{biblatex}
+\addbibresource{refs.bib}
+
+% -------------------- auto-generated macros -------------------------
+\input{results/results.tex}
+
+% ------------------------- document ---------------------------------
+\begin{document}
+
+\title{High-Order Markov Analysis and\\
+       Landauer-Limited Energy Savings under Huffman Compression}
+\author{Your Name\thanks{Affiliation, address.  
+        Email: \texttt{your.name@inst.edu}}}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+We investigate the relationship between third-order character
+dependencies in a text corpus and the thermodynamic minimum energy
+required to erase the compressed representation.
+Using canonical Huffman coding and Landauer's principle at
+\SI{300}{\kelvin}, we achieve a mean compression ratio of
+\MeanComprRatio\ (95 \% CI: \MeanComprRatioLo–\MeanComprRatioHi), which
+translates to an average energy saving of
+\SI{\MeanEnergySaving}{\percent} (95 \% CI:
+\MeanEnergySavingLo–\MeanEnergySavingHi).
+A χ² order-selection test (\(\chi^{2}_{\ChiTwoDF} =
+\ChiTwo\), \(p = \ChiTwoP\)) confirms that third-order
+dependencies explain significantly more variance than a unigram model.
+\end{abstract}
+
+\section{Introduction}
+Modern storage and communication systems frequently employ reversible
+or near-reversible encodings to minimise energy dissipation.  At the
+thermodynamic limit, each bit erased costs at least \(k_{\mathrm{B}} T
+\ln 2\) joules~\parencite{Landauer1961}.  This paper combines
+information-theoretic analysis and physical considerations to quantify
+the attainable savings on a real-world corpus.
+
+\section{Related Work}
+\label{sec:related}
+Briefly review Markov entropy estimation, Huffman coding efficiency and
+recent efforts to approach the Landauer limit in computing
+hardware~\parencite{Bennett2003,Anders2019}.
+
+\section{Methodology}
+\label{sec:method}
+\subsection{Corpus}
+We analyse \Nfiles\ UTF-8 text files (\NcharsTotal\ characters) drawn
+from \<describe source\>.
+
+\subsection{Pipeline}
+The entire workflow is encoded in
+\texttt{build\_markov\_and\_landauer.py}.  Key steps:
+\begin{enumerate}
+  \item Unicode NFC normalisation and ingestion.
+  \item Third-order (\(n = 3\)) character Markov counting; entropy
+        \(H_{3}\) estimated per file.
+  \item Canonical Huffman coding; compressed bit-stream emitted.
+  \item Landauer energy computed as \(E = N_{\mathrm{bits}} k_{\mathrm{B}} T \ln 2\).
+  \item \(2\,000\)-iteration bootstrap for corpus-level CIs
+        (fixed seed = 42).
+  \item χ² goodness-of-fit: \(n=3\) vs.\ unigram.
+\end{enumerate}
+
+\section{Results}
+\label{sec:results}
+\subsection{Per-file statistics}
+\begin{table}[htbp]
+  \centering
+  \caption{Per-file compression and energy metrics.}
+  \label{tab:perfile}
+  \begin{tabular}{lrrrr}
+    \toprule
+    File & \#\,Chars & Raw bits & Huffman bits & Ratio \\ \midrule
+    \input{results/tables/file_rows.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Corpus aggregates}
+The mean compression ratio
+(\autoref{tab:perfile}) is \MeanComprRatio\ with a
+\SI{\MeanEnergySaving}{\percent} average energy saving.
+
+\subsection{Model order test}
+The χ² statistic of \ChiTwo\ on \ChiTwoDF\ degrees of freedom
+(\(p = \ChiTwoP\)) rejects the null that unigram frequencies alone
+explain the observed third-order counts.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.75\linewidth]{figures/ratio_hist.pdf}
+  \caption{Histogram of per-file compression ratios.}
+  \label{fig:ratio-hist}
+\end{figure}
+
+\section{Discussion}
+Interpret the practical implications for low-energy storage systems
+and compare with prior art.
+
+\section{Conclusion}
+We provide a fully reproducible link between high-order statistical
+structure and thermodynamic cost, achieving substantial energy savings
+relative to raw UTF-8 storage.
+
+\printbibliography
+
+\end{document}
+

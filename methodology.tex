@@ -1,0 +1,44 @@
+\subsection{Corpus Acquisition}
+All plaintext files in commit \texttt{\CommitHash} of
+\href{https://github.com/\Repo}{\Repo} were analysed individually; no
+cross-file concatenation was performed so that file-local statistics remain
+interpretable by developers.
+
+\subsection{Pre-processing Robustness Upgrades}
+\begin{enumerate}
+  \item \textbf{Encoding validation} — Each byte stream is decoded as
+        UTF-8 with \texttt{strict} error policy.  Any failure aborts the
+        pipeline and records the offending filename.
+  \item \textbf{Normalisation} — Unicode canonical composition
+        (NFC) is applied to avoid code-point duplication.
+  \item \textbf{Whitespace policy} — All carriage returns are mapped to
+        LF; trailing spaces are preserved because they influence entropy.
+\end{enumerate}
+
+\subsection{Third-Order Markov Modelling}
+Counts $c(\mathbf{x}_{n-3}^{n-1}, x_n)$ are gathered in a
+single pass; the alphabet is the set of observed Unicode code points
+($k = \num{\AlphabetSize}$).  We apply Laplace $+1/k$ smoothing to avoid
+singular probability rows, then convert to probabilities
+$p = (c+1/k)/(\sum c + 1)$.
+
+\subsection{Huffman Coding and Bit-Sequence Extraction}
+For each file we derive a canonical Huffman code from the marginal
+distribution $P(x)$ and emit the compressed bit-stream $B$.
+The third-order analysis is then repeated on $B$ with
+alphabet $\{0,1\}$.
+
+\subsection{Landauer Bound Computation}
+The minimum erasure energy is $E = |B|\;k_B T \ln 2$ with
+$T=\SI{300}{\kelvin}$.  We report both absolute energies (joule) and the
+percentage saving $\Delta E$ relative to the raw stream.
+
+\subsection{Software and Reproducibility}
+Python 3.11; deterministic seed $42$; script commit
+\texttt{\ScriptHash}.  Running
+\begin{verbatim}
+$ python build_markov_and_landauer.py --batch repo/*.txt
+\end{verbatim}
+creates \texttt{markov\_pre.json}, \texttt{markov\_post.json} and a
+\texttt{results.tex} file that this document auto-imports.
+

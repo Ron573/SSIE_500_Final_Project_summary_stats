@@ -1,0 +1,32 @@
+\begin{table}[ht]
+\centering
+\caption{Aggregate statistics per file.\label{tab:agg}}
+\begin{tabular}{l
+                S[table-format=7.0]
+                S[table-format=9.0]
+                S[table-format=9.0]
+                S[table-format=1.3]
+                S[table-format=1.2e1]
+                S[table-format=1.2e1]
+                S[table-format=2.1]}
+\toprule
+{File} & {Chars} & {Bits$_\text{raw}$} & {Bits$_\text{Huff}$} &
+{$\rho$} & {$E_\text{raw}$} & {$E_\text{Huff}$} & {$\Delta E$\,\%}\\
+\midrule
+\input{tables/file_rows.tex}
+\midrule
+\textbf{Mean} & & & &
+\textbf{\MeanComprRatio} & & &
+\textbf{\MeanEnergySaving}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\input{figures/prob_spectrum.tex}
+\caption{Complementary cumulative distribution of transition
+probabilities for \emph{foo.txt}.  The heavy-tailed curve (blue) is
+pre-compression; the near-Bernoulli curve (orange) is post-compression.}
+\end{figure}
+
