@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 # build_markov_and_landauer.py
 #
 # One-file, reproducible analysis pipeline.
