@@ -40,23 +40,25 @@ def extract_first_n_characters(input_file, output_file, n=50000):
     except Exception as e:
         print(f"Error processing {input_file}: {e}")
 
-# Define the original file paths and the new file paths
-original_files = {
-    "English": "Languages/English.txt",  # Replace with your actual file names
-    "Spanish": "Languages/Spanish.txt",
-    "Russian": "Languages/Russian.txt",
-    "Hindi": "Languages/Hindi.txt",
-    "Turkish": "Languages/Turkish.txt",
-    "Chinese": "Languages/Chinese.txt"
+# original_files = {
+    "English": "SSIE_500_Final_Project_summary_stats/Languages/English.txt",
+    "Spanish": "SSIE_500_Final_Project_summary_stats/Languages/Spanish.txt",
+    "Russian": "SSIE_500_Final_Project_summary_stats/Languages/Russian.txt",
+    "Hindi": "SSIE_500_Final_Project_summary_stats/Languages/Hindi.txt",
+    "Turkish": "SSIE_500_Final_Project_summary_stats/Languages/Turkish.txt",
+    "Chinese": "SSIE_500_Final_Project_summary_stats/Languages/Chinese.txt"
 }
+ the original file paths and the new file paths
 
 new_files = {
-    "English": "Languages/English_first50000.txt",
-    "Spanish": "Languages/Spanish_first50000.txt",
-    "Russian": "Languages/Russian_text_first50000.txt",
-    "Hindi": "Languages/hindi_first50000.txt",
-    "Turkish": "Languages/turkish_first50000.txt",
-    "Chinese": "Languages/chinese_first50000.txt"
+    "English": "SSIE_500_Final_Project_summary_stats/Languages/English_first50000.txt",
+    "Spanish": "SSIE_500_Final_Project_summary_stats/Languages/Spanish_first50000.txt",
+    "Russian": "SSIE_500_Final_Project_summary_stats/Languages/Russian_text_first50000.txt",
+    "Hindi": "SSIE_500_Final_Project_summary_stats/Languages/hindi_first50000.txt",
+    "Turkish": "SSIE_500_Final_Project_summary_stats/Languages/turkish_first50000.txt",
+    "Chinese": "SSIE_500_Final_Project_summary_stats/Languages/chinese_first50000.txt"
+}
+
 }
 
 # Extract and save the first 50,000 characters for each language
@@ -272,14 +274,16 @@ if __name__ == "__main__":
     setup_directories()
 
     # Replace with your actual file paths
-    sources = [
-        "Languages/English first50000.txt",
-        "Languages/Spanish first50000.txt",
-        "Languages/Russian text first50000.txt",
-        "Languages/Sri Hanuman Chalisa Hindi.pdf",
-        "Languages/turkish book chapter.pdf",
-        "Languages/chinese dissertation.txt"
-    ]
+sources = [
+    "SSIE_500_Final_Project_summary_stats/Languages/English first50000.txt",
+    "SSIE_500_Final_Project_summary_stats/Languages/Spanish first50000.txt",
+    "SSIE_500_Final_Project_summary_stats/Languages/Russian text first50000.txt",
+    "SSIE_500_Final_Project_summary_stats/Languages/Sri Hanuman Chalisa Hindi.pdf",
+    "SSIE_500_Final_Project_summary_stats/Languages/turkish book chapter.pdf",
+    "SSIE_500_Final_Project_summary_stats/Languages/chinese dissertation.txt"
+]
+
+    
 
     # --- Data Loading ---
     language_texts = load_data(sources)
